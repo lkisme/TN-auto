@@ -12,10 +12,19 @@
     // username,
     // password,
     recipient,
-    message,
+    //message,
     cookies_str,
   } = config;
-
+  
+  var codeNum=""
+  for(var i=0;i<4;i++){
+    //设置随机数范围,这设置为0 ~ 9
+    var a = Math.floor(Math.random() * 9);
+    //拼接字符串
+    codeNum += a
+  }
+  const message = "Code: " + codeNum;
+  
   let browser = null;
   let page = null;
   const md5 = crypto.createHash('md5').update(cookies_str).digest('hex');
