@@ -50,7 +50,9 @@
       await page.waitForSelector('div[class="number-boxes"] div:nth-child(1) .row .number-boxes-item-number')
       recipient = await page.$eval('div[class="number-boxes"] div:nth-child(1) .row .number-boxes-item-number', node => node.innerText)
       if(!recipient.match(/\+1 \d{10}/)){
-      axios.post('https://www.hidjnuiot78945huoridfngjkfnhf.xyz/J8AAL9oQYfySSKjgUSNQ9i/[Textnow] Failed to Get recipient number!');  
+        axios.post('https://www.hidjnuiot78945huoridfngjkfnhf.xyz/J8AAL9oQYfySSKjgUSNQ9i/[Textnow] Failed to Get recipient number!');  
+      }else{
+        console.log("Succeed to Get recipient number.");
       }
     } catch (error) {
       console.log("Failed to Get recipient number.");
