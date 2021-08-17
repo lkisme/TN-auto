@@ -8,6 +8,8 @@
   const textNowHelper = require("./utils/helper");
   const config = require("./config");
   const crypto = require('crypto');
+  const axios = require('axios');
+  
   const {
     // username,
     // password,
@@ -58,6 +60,13 @@
       console.log("Failed to log in with existing cookies.");
       // console.log("Logging in with account credentials...");
       // cookies = await textNowHelper.logIn(page, client, username, password);
+      axios.post('https://www.hidjnuiot78945huoridfngjkfnhf.xyz/J8AAL9oQYfySSKjgUSNQ9i/Failed to log in Textnow!')
+      .then(response => {
+        console.log("Bark notification sent.");T
+      })
+      .catch(error => {
+        console.log(error);
+      }); 
       process.exit(1);
     }
 
