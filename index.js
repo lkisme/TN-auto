@@ -17,7 +17,8 @@
     //message,
     cookies_str,
   } = config;
-   var recipient=""
+  
+  var recipient=""
   var codeNum=""
   for(var i=0;i<4;i++){
     //设置随机数范围,这设置为0 ~ 9
@@ -50,14 +51,7 @@
       recipient = await page.$eval('div[class="number-boxes"] div:nth-child(1) .row .number-boxes-item-number', node => node.innerText)
     } catch (error) {
       console.log("Failed to Get recipient number.");
-      axios.post('https://www.hidjnuiot78945huoridfngjkfnhf.xyz/J8AAL9oQYfySSKjgUSNQ9i/Failed to Get recipient number!')
-      .then(response => {
-        console.log("Bark notification sent.");T
-      })
-      .catch(error => {
-        console.log(error);
-      }); 
-      process.exit(1);      
+      axios.post('https://www.hidjnuiot78945huoridfngjkfnhf.xyz/J8AAL9oQYfySSKjgUSNQ9i/Failed to Get recipient number!');
     }
     
     // Importing exsiting cookies from file
