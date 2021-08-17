@@ -48,10 +48,11 @@
         page.waitForNavigation({ waitUtil: "networkidle2" }),
       ]);
       await page.waitForSelector('div[class="number-boxes"] div:nth-child(1) .row .number-boxes-item-number')
-      recipient = await page.$eval('div[class="test"] div:nth-child(1) .row .number-boxes-item-number', node => node.innerText)
+      recipient = await page.$eval('div[class="number-boxes"] div:nth-child(1) .row .number-boxes-item-number', node => node.innerText)
+      
     } catch (error) {
       console.log("Failed to Get recipient number.");
-      axios.post('https://www.hidjnuiot78945huoridfngjkfnhf.xyz/J8AAL9oQYfySSKjgUSNQ9i/Failed to Get recipient number!');
+      axios.post('https://www.hidjnuiot78945huoridfngjkfnhf.xyz/J8AAL9oQYfySSKjgUSNQ9i/[Textnow] Failed to Get recipient number!');
     }
     
     // Importing exsiting cookies from file
@@ -64,6 +65,7 @@
     } catch (error) {
       console.log("Failed to import existing cookies.");
       if (cookies_str) cookies = parseCookies(cookies_str, 'www.textnow.com');
+      axios.post('https://www.hidjnuiot78945huoridfngjkfnhf.xyz/J8AAL9oQYfySSKjgUSNQ9i/[Textnow] Failed to import existing cookies!');
     }
 
     // Log into TextNow and get cookies
@@ -75,13 +77,7 @@
       console.log("Failed to log in with existing cookies.");
       // console.log("Logging in with account credentials...");
       // cookies = await textNowHelper.logIn(page, client, username, password);
-      axios.post('https://www.hidjnuiot78945huoridfngjkfnhf.xyz/J8AAL9oQYfySSKjgUSNQ9i/Failed to log in Textnow!')
-      .then(response => {
-        console.log("Bark notification sent.");T
-      })
-      .catch(error => {
-        console.log(error);
-      }); 
+      axios.post('https://www.hidjnuiot78945huoridfngjkfnhf.xyz/J8AAL9oQYfySSKjgUSNQ9i/[Textnow] Failed to log in Textnow!');
       process.exit(1);
     }
 
@@ -94,6 +90,7 @@
       );
     } catch (error) {
       console.log("Failed to save cookies to file.");
+      axios.post('https://www.hidjnuiot78945huoridfngjkfnhf.xyz/J8AAL9oQYfySSKjgUSNQ9i/[Textnow] Failed to save cookies to file!');
     }
 
     // Select a conversation using recipient info
@@ -108,7 +105,8 @@
     await browser.close();
   } catch (error) {
     console.log(error);
-
+    axios.post('https://www.hidjnuiot78945huoridfngjkfnhf.xyz/J8AAL9oQYfySSKjgUSNQ9i/[Textnow] ' + error);
+    
     if (page) {
       await page.screenshot({ path: "./error-screenshot.jpg", type: "jpeg" });
     }
