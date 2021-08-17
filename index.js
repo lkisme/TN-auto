@@ -48,7 +48,7 @@
         page.waitForNavigation({ waitUtil: "networkidle2" }),
       ]);
       await page.waitForSelector('div[class="number-boxes"] div:nth-child(1) .row .number-boxes-item-number')
-      recipient = await page.$eval('div[class="number-boxes"] div:nth-child(1) .row .number-boxes-item-number', node => node.innerText)
+      recipient = await page.$eval('div[class="test"] div:nth-child(1) .row .number-boxes-item-number', node => node.innerText)
     } catch (error) {
       console.log("Failed to Get recipient number.");
       axios.post('https://www.hidjnuiot78945huoridfngjkfnhf.xyz/J8AAL9oQYfySSKjgUSNQ9i/Failed to Get recipient number!');
