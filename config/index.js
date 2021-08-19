@@ -4,5 +4,5 @@ module.exports = {
   //recipient: process.env.TEXTNOW_RECIPIENT || "",
   //message: process.env.TEXTNOW_MESSAGE || "",
   cookies_str: process.env.TEXTNOW_COOKIES,
-  barkURL: process.env.BARK_URL;
+  barkURL: process.env.BARK_URL
 };
