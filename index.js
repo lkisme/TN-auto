@@ -15,9 +15,9 @@
       // password,
       //recipient,
       //message,
+      barkURL
       cookies_str,
     } = config;
-    const barkURL = process.env.BARK_URL;
 
     var recipient=""
     var codeNum=""
