@@ -54,6 +54,7 @@
           axios.post(barkURL + '[Textnow] Failed to Get recipient number!');  
         }else{
           console.log("Succeed to Get recipient number.");
+                            axios.post(barkURL + '[Textnow] Succeed to Get recipient number!');
         }
       } catch (error) {
         console.log("Failed to Get recipient number.");
