@@ -15,7 +15,7 @@
       // password,
       //recipient,
       //message,
-      barkURL
+      barkURL,
       cookies_str,
     } = config;
 
