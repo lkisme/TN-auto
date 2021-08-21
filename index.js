@@ -51,13 +51,13 @@
         await page.waitForSelector('div[class="number-boxes"] div:nth-child(1) .row .number-boxes-item-number')
         recipient = await page.$eval('div[class="number-boxes"] div:nth-child(1) .row .number-boxes-item-number', node => node.innerText)
         if(!recipient.match(/\+1 \d{10}/)){
-          axios.post(barkURL + '[Textnow] Failed to Get recipient number!');  
+          axios.post(barkURL + '[Textnow] Failed to Get recipient number!?isArchive=1');  
         }else{
           console.log("Succeed to Get recipient number.");
         }
       } catch (error) {
         console.log("Failed to Get recipient number.");
-        axios.post(barkURL + '[Textnow] Failed to Get recipient number!');
+        axios.post(barkURL + '[Textnow] Failed to Get recipient number!?isArchive=1');
       }
       
       // Importing exsiting cookies from file
@@ -70,7 +70,7 @@
       } catch (error) {
         console.log("Failed to import existing cookies.");
         if (cookies_str) cookies = parseCookies(cookies_str, 'www.textnow.com');
-        axios.post(barkURL + '[Textnow] Failed to import existing cookies!');
+        axios.post(barkURL + '[Textnow] Failed to import existing cookies!?isArchive=1');
       }
   
       // Log into TextNow and get cookies
@@ -82,7 +82,7 @@
         console.log("Failed to log in with existing cookies.");
         // console.log("Logging in with account credentials...");
         // cookies = await textNowHelper.logIn(page, client, username, password);
-        axios.post(barkURL + '[Textnow] Failed to log in Textnow!');
+        axios.post(barkURL + '[Textnow] Failed to log in Textnow!?isArchive=1');
         process.exit(1);
       }
   
@@ -95,7 +95,7 @@
         );
       } catch (error) {
         console.log("Failed to save cookies to file.");
-        axios.post(barkURL + '[Textnow] Failed to save cookies to file!');
+        axios.post(barkURL + '[Textnow] Failed to save cookies to file!?isArchive=1');
       }
   
       // Select a conversation using recipient info
@@ -110,7 +110,7 @@
       await browser.close();
     } catch (error) {
       console.log(error);
-      axios.post(barkURL + '[Textnow] ' + error);
+      axios.post(barkURL + '[Textnow] ' + error + '?isArchive=1');
       
       if (page) {
         await page.screenshot({ path: "./error-screenshot.jpg", type: "jpeg" });
