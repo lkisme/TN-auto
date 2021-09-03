@@ -97,15 +97,18 @@
         console.log("Failed to save cookies to file.");
         axios.post(barkURL + '[Textnow] Failed to save cookies to file!?isArchive=1');
       }
-  
-      // Select a conversation using recipient info
-      console.log("Selecting conversation...");
-      await textNowHelper.selectConversation(page, recipient);
-  
-      // Send a message to the current recipient
-      console.log("Sending message...");
-      await textNowHelper.sendMessage(page, message);
-  
+       
+      try {
+          // Select a conversation using recipient info
+          console.log("Selecting conversation...");
+          await textNowHelper.selectConversation(page, recipient);
+
+          // Send a message to the current recipient
+          console.log("Sending message...");
+          await textNowHelper.sendMessage(page, message);
+      }catch (error) {
+          axios.post(barkURL + '[Textnow] Select&Send error! ' + error + '?isArchive=1');
+      }
       console.log("Message sent!");
       await browser.close();
     } catch (error) {
