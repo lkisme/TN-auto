@@ -1,19 +1,19 @@
 {
-  "name": "textnow",
+  "name": "autosign",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "autoSign.js",
+  "dependencies": {
+    "axios": "^0.21.2",
+    "puppeteer": "^10.2.0",
+    "puppeteer-extra": "^3.1.18",
+    "puppeteer-extra-plugin-stealth": "^2.7.8"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "axios": "^0.21.1",
-    "puppeteer": "^10.2.0",
-    "puppeteer-extra": "^3.1.18",
-    "puppeteer-extra-plugin-stealth": "^2.7.8"
-  }
+  "description": ""
 }
