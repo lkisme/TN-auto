@@ -12,7 +12,7 @@ module.exports.logIn = async (page, client, username, password) => {
     //page.waitForNavigation({ waitUtil: "networkidle0" }),
   ]);
 */
-  await page.goto("https://www.textnow.com/login",{waitUntil: "networkidle0"});
+  await page.goto("https://www.textnow.com/login",{waitUntil: "networkidle2"});
   await page.waitForTimeout(10000);
   
 /*  if (username && password) {
@@ -45,7 +45,7 @@ module.exports.logIn = async (page, client, username, password) => {
  */
 module.exports.selectConversation = async (page, recipient) => {
 /*  await Promise.all([
-    page.goto("https://www.textnow.com/messaging",{waitUntil: "networkidle0"}),
+    page.goto("https://www.textnow.com/messaging",{waitUntil: "networkidle2"}),
     //page.waitForNavigation({ waitUtil: "networkidle2" }),
   ]);
 */
