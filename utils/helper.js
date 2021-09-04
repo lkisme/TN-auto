@@ -48,14 +48,14 @@ module.exports.selectConversation = async (page, recipient) => {
   await page.waitForTimeout(5000);
 
   await page.$eval("#newText", (element) => element.click());
-  await page.waitForTimeout(500);
+  await page.waitForTimeout(1500);
 
   const recipientField = await page.waitForSelector(
     ".newConversationTextField"
   );
-  await page.waitForTimeout(500);
+  await page.waitForTimeout(1500);
   await recipientField.type(recipient);
-  await page.waitForTimeout(500);
+  await page.waitForTimeout(1500);
   await page.keyboard.press("Enter");
   await page.waitForTimeout(3000);
 };
@@ -67,9 +67,9 @@ module.exports.selectConversation = async (page, recipient) => {
  */
 module.exports.sendMessage = async (page, message) => {
   const messageField = await page.waitForSelector("#text-input");
-  await page.waitForTimeout(500);
+  await page.waitForTimeout(1500);
   await messageField.type(message);
-  await page.waitForTimeout(500);
+  await page.waitForTimeout(1500);
   await page.keyboard.press("Enter");
   await page.waitForTimeout(5000);
 };
