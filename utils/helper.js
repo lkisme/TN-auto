@@ -48,7 +48,8 @@ module.exports.selectConversation = async (page, recipient) => {
   await page.waitForTimeout(5000);
 
   try{
-      await page.$eval("#newText", (element) => element.click());
+      await page.click('#newText');
+      //await page.$eval("#newText", (element) => element.click());
   }catch(error){
       console.log(`Failed to find selector "#newText"! ` + error);
       process.exit(1);
