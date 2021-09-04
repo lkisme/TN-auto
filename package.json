@@ -1,7 +1,7 @@
 {
-  "name": "autosign",
+  "name": "textnow",
   "version": "1.0.0",
-  "main": "autoSign.js",
+  "main": "do.js",
   "dependencies": {
     "axios": "^0.21.2",
     "puppeteer": "^10.2.0",
