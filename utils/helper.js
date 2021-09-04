@@ -50,7 +50,8 @@ module.exports.selectConversation = async (page, recipient) => {
   try{
       await page.$eval("#newText", (element) => element.click());
   }catch(error){
-      console.log(`Failed to find selector "#newText"!` + error);
+      console.log(`Failed to find selector "#newText"! ` + error);
+      process.exit(1);
   }
 
   await page.waitForTimeout(1500);
@@ -58,7 +59,8 @@ module.exports.selectConversation = async (page, recipient) => {
   try{
       const recipientField = await page.waitForSelector(".newConversationTextField");
   }catch(error){
-      console.log(`Failed to find selector ".newConversationTextField"!` + error);
+      console.log(`Failed to find selector ".newConversationTextField"! ` + error);
+      process.exit(1);
   }  
   
   await page.waitForTimeout(1500);
