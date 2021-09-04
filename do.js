@@ -43,7 +43,7 @@
 
   try {
     const page = await browser.newPage();
-    const cookies_secret = eval(fs.readFileSync('./Cookies/TEXTNOW_COOKIES.txt', 'utf8'));//eval(process.env.TEXTNOW_COOKIES);//
+    const cookies_secret = eval(process.env.TEXTNOW_COOKIES);
     const md5 = crypto.createHash('md5').update("textnow").digest('hex');
     var cookies = "";
 
