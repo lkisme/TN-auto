@@ -24,6 +24,7 @@ module.exports.logIn = async (page, client, username, password) => {
     return cookies;
   }
 */
+  await page.waitForTimeout(10000);
   const isLoggedIn = page.url().includes("/messaging");
   if (!isLoggedIn) {
     throw new Error("Deteacted invalid or expires cookies");
