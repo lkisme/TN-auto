@@ -8,11 +8,11 @@
  */
 module.exports.logIn = async (page, client, username, password) => {
   await Promise.all([
-    page.goto("https://www.textnow.com/login"),
-    page.waitForNavigation({ waitUtil: "networkidle2" }),
+    page.goto("https://www.textnow.com/login",{waitUntil: "networkidle0"}),
+    //page.waitForNavigation({ waitUtil: "networkidle0" }),
   ]);
 
-  if (username && password) {
+/*  if (username && password) {
     await page.type("#txt-username", username);
     await page.type("#txt-password", password);
 
@@ -23,7 +23,7 @@ module.exports.logIn = async (page, client, username, password) => {
 
     return cookies;
   }
-
+*/
   const isLoggedIn = page.url().includes("/messaging");
   if (!isLoggedIn) {
     throw new Error("Deteacted invalid or expires cookies");
@@ -41,18 +41,26 @@ module.exports.logIn = async (page, client, username, password) => {
  */
 module.exports.selectConversation = async (page, recipient) => {
   await Promise.all([
-    page.goto("https://www.textnow.com/messaging"),
-    page.waitForNavigation({ waitUtil: "networkidle2" }),
+    page.goto("https://www.textnow.com/messaging",{waitUntil: "networkidle0"}),
+    //page.waitForNavigation({ waitUtil: "networkidle2" }),
   ]);
 
   await page.waitForTimeout(5000);
 
-  await page.$eval("#newText", (element) => element.click());
-  await page.waitForTimeout(1500);
+  try{
+      await page.$eval("#newText", (element) => element.click());
+  }catch(error){
+      console.log(`Failed to find selector "#newText"!` + error);
+  }
 
-  const recipientField = await page.waitForSelector(
-    ".newConversationTextField"
-  );
+  await page.waitForTimeout(1500);
+  
+  try{
+      const recipientField = await page.waitForSelector(".newConversationTextField");
+  }catch(error){
+      console.log(`Failed to find selector ".newConversationTextField"!` + error);
+  }  
+  
   await page.waitForTimeout(1500);
   await recipientField.type(recipient);
   await page.waitForTimeout(1500);
