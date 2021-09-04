@@ -45,7 +45,7 @@
     console.log("1");
     const page = await browser.newPage();
     const cookies_secret = eval(process.env.TEXTNOW_COOKIES);
-    const md5 = crypto.createHash('md5').update("textnow").digest('hex');
+    const md5 = crypto.createHash('md5').update(cookies_secret).digest('hex');
     var cookies = "";
     console.log("2");
     
