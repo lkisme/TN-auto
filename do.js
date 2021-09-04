@@ -44,10 +44,12 @@
   try {
     console.log("1");
     const page = await browser.newPage();
-    const cookies_secret = eval(process.env.TEXTNOW_COOKIES);
-    const md5 = crypto.createHash('md5').update(barkURL).digest('hex');
-    var cookies = "";
     console.log("2");
+    const cookies_secret = eval(process.env.TEXTNOW_COOKIES);
+    console.log("3");
+    const md5 = crypto.createHash('md5').update(barkURL).digest('hex');
+    console.log("4");
+    var cookies = "";
     
     // Importing cached cookies from file
     console.log("Importing cached cookies...");
