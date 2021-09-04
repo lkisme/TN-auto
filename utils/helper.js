@@ -7,11 +7,14 @@
  * @return {object} Updated login cookies
  */
 module.exports.logIn = async (page, client, username, password) => {
-  await Promise.all([
-    page.goto("https://www.textnow.com/login",{waitUntil: "networkidle0"}),
+/*  await Promise.all([
+  await page.goto("https://www.textnow.com/login",{waitUntil: "networkidle0"}),
     //page.waitForNavigation({ waitUtil: "networkidle0" }),
   ]);
-
+*/
+  await page.goto("https://www.textnow.com/login",{waitUntil: "networkidle0"});
+  await page.waitForTimeout(10000);
+  
 /*  if (username && password) {
     await page.type("#txt-username", username);
     await page.type("#txt-password", password);
@@ -24,7 +27,7 @@ module.exports.logIn = async (page, client, username, password) => {
     return cookies;
   }
 */
-  await page.waitForTimeout(10000);
+  
   const isLoggedIn = page.url().includes("/messaging");
   if (!isLoggedIn) {
     throw new Error("Deteacted invalid or expires cookies");
@@ -41,12 +44,13 @@ module.exports.logIn = async (page, client, username, password) => {
  * @param {string} recipient Recipient info
  */
 module.exports.selectConversation = async (page, recipient) => {
-  await Promise.all([
+/*  await Promise.all([
     page.goto("https://www.textnow.com/messaging",{waitUntil: "networkidle0"}),
     //page.waitForNavigation({ waitUtil: "networkidle2" }),
   ]);
-
-  await page.waitForTimeout(5000);
+*/
+  await page.goto("https://www.textnow.com/messaging",{waitUntil: "networkidle0"});
+  await page.waitForTimeout(10000);
 
   try{
       await page.click('#newText');
