@@ -42,11 +42,13 @@
 
 
   try {
+    console.log("1");
     const page = await browser.newPage();
     const cookies_secret = eval(process.env.TEXTNOW_COOKIES);
     const md5 = crypto.createHash('md5').update("textnow").digest('hex');
     var cookies = "";
-
+    console.log("2");
+    
     // Importing cached cookies from file
     console.log("Importing cached cookies...");
     try {
