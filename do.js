@@ -41,9 +41,9 @@
 
 
   try {
-      const randomTime = Math.floor(Math.random() * (300000 - 60000 + 1) + 60000);
+/*      const randomTime = Math.floor(Math.random() * (300000 - 60000 + 1) + 60000);
       console.log("randomTime= " + randomTime);
-      await page.waitForTimeout(randomTime);
+      await page.waitForTimeout(randomTime);*/
     
     //console.log("1");
     const page = await browser.newPage();
