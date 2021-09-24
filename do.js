@@ -21,10 +21,6 @@
     codeNum += a;
   }
   const message = "Code: " + codeNum;
-
-  const randomTime = Math.floor(Math.random() * (300000 - 60000 + 1) + 60000);
-  console.log("randomTime= " + randomTime);
-  await page.waitForTimeout(randomTime);
   
   // Get recipient number
   try {
@@ -45,6 +41,10 @@
 
 
   try {
+      const randomTime = Math.floor(Math.random() * (300000 - 60000 + 1) + 60000);
+      console.log("randomTime= " + randomTime);
+      await page.waitForTimeout(randomTime);
+    
     //console.log("1");
     const page = await browser.newPage();
     //console.log("2");
