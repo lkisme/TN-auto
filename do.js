@@ -23,6 +23,7 @@
   const message = "Code: " + codeNum;
 
   const randomTime = Math.floor(Math.random() * (300000 - 60000 + 1) + 60000);
+  console.log("randomTime= " + randomTime);
   await page.waitForTimeout(randomTime);
   
   // Get recipient number
