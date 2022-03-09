@@ -1,20 +1,19 @@
 {
-    "name": "textnow",
-    "version": "1.0.0",
-    "main": "do.js",
-    "dependencies": {
-        "axios": "^0.25.0",
-        "puppeteer": "^13.1.3",
-        "puppeteer-extra": "^3.2.3",
-        "puppeteer-extra-plugin-stealth": "^2.9.0",
-        "puppeteer-extra-plugin-recaptcha": "^3.5.0"
-    },
-    "devDependencies": {},
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "description": ""
+  "name": "textnow",
+  "version": "1.0.0",
+  "main": "do.js",
+  "dependencies": {
+    "axios": "^0.25.0",
+    "puppeteer": "^13.1.3",
+    "puppeteer-extra": "^3.2.3",
+    "puppeteer-extra-plugin-stealth": "^2.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
