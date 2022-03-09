@@ -93,7 +93,7 @@
         if (await page.$('div.cf-captcha-container') !== null) {
             console.log('hCaptcha was found, try to solve.');
 
-            await page.waitForSelector('iframe[title~="hCaptcha"]');
+            await page.waitForSelector('iframe[title~="hCaptcha"]', { timeout: 0 });
 
             await Promise.all([
                 page.solveRecaptchas(),
@@ -102,7 +102,7 @@
         }
 
         try {
-            await page.waitForSelector("#newText");
+            await page.waitForSelector("#newText", { timeout: 0 });
             console.log(`Succeed to sign in.`);
         } catch (err) {
             console.log(`Failed to sign in: ` + err);
@@ -124,7 +124,7 @@
         // Select a conversation using recipient info
         console.log("Selecting conversation...");
         try {
-            await page.waitForSelector('#newText');
+            await page.waitForSelector('#newText', { timeout: 0 });
             //await page.click('#newText'); //无头模式下，这种写法有时不灵?
             await page.evaluate(() => {
                 document.getElementById("newText").click();
@@ -137,7 +137,7 @@
         }
 
         try {
-            await page.waitForSelector('.newConversationTextField');
+            await page.waitForSelector('.newConversationTextField', { timeout: 0 });
             await page.type('.newConversationTextField', recipient);
             //console.log("2 done...");
             //await page.$eval('.newConversationTextField', (recip, _recipient) => recip.value = _recipient, recipient);
@@ -155,7 +155,7 @@
         // Send a message to the current recipient
         console.log("Sending message...");
         try {
-            await page.waitForSelector('#text-input');
+            await page.waitForSelector('#text-input', { timeout: 0 });
             await page.type('#text-input', message);
             //console.log("4 done...");
             await page.waitForTimeout(1500);
