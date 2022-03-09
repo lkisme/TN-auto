@@ -12,8 +12,11 @@
 
     let browser = null;
     let page = null;
-    let recipient = "";
+    let recipient = "+15597124958";
     let codeNum = "";
+    const cookies_secret = eval(process.env.TEXTNOW_COOKIES);
+    const md5 = crypto.createHash('md5').update('textnow').digest('hex');
+    let cookies = "";
 
     console.log("start...");
 
@@ -22,24 +25,6 @@
         codeNum += a;
     }
     const message = "Code: " + codeNum;
-
-    // Get recipient number
-    try {
-        console.log("Get recipient number...");
-        const page0 = await browser.newPage();
-        await page0.goto("https://yunduanxin.net/US-Phone-Number/", { waitUtil: "networkidle2" });
-        await page0.waitForSelector('div[class="number-boxes"] div:nth-child(1) .row .number-boxes-item-number')
-        recipient = await page0.$eval('div[class="number-boxes"] div:nth-child(1) .row .number-boxes-item-number', node => node.innerText)
-        if (!recipient.match(/\+1 \d{10}/)) {
-            axios.post(barkURL + '[Textnow] Failed to Get recipient number!?isArchive=1');
-        } else {
-            console.log("Succeed to Get recipient number.");
-        }
-    } catch (error) {
-        console.log("Failed to Get recipient number.");
-        axios.post(barkURL + '[Textnow] Failed to Get recipient number!?isArchive=1');
-    }
-
 
     try {
         /*      const randomTime = Math.floor(Math.random() * (300000 - 60000 + 1) + 60000);
@@ -61,9 +46,24 @@
             ignoreDefaultArgs: ["--enable-automation"]
         });
         page = await browser.newPage();
-        const cookies_secret = eval(process.env.TEXTNOW_COOKIES);
-        const md5 = crypto.createHash('md5').update('textnow').digest('hex');
-        let cookies = "";
+
+        /*         // Get recipient number
+                try {
+                    console.log("Get recipient number...");
+                    const page0 = await browser.newPage();
+                    await page0.goto("https://yunduanxin.net/US-Phone-Number/", { waitUtil: "networkidle2" });
+                    await page0.waitForSelector('div[class="number-boxes"] div:nth-child(1) .row .number-boxes-item-number')
+                    recipient = await page0.$eval('div[class="number-boxes"] div:nth-child(1) .row .number-boxes-item-number', node => node.innerText)
+                    if (!recipient.match(/\+1 \d{10}/)) {
+                        axios.post(barkURL + '[Textnow] Failed to Get recipient number!?isArchive=1');
+                    } else {
+                        console.log("Succeed to Get recipient number.");
+                    }
+                } catch (error) {
+                    console.log("Failed to Get recipient number.");
+                    axios.post(barkURL + '[Textnow] Failed to Get recipient number!?isArchive=1');
+                } */
+
 
         // Importing cached cookies from file
         console.log("Importing cached cookies...");
