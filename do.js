@@ -2,8 +2,6 @@
     const puppeteer = require('puppeteer-extra');
     const StealthPlugin = require('puppeteer-extra-plugin-stealth');
     const recaptchaPlugin = require('puppeteer-extra-plugin-recaptcha');
-
-
     const crypto = require('crypto');
     const path = require("path");
     const fs = require("fs");
