@@ -101,14 +101,14 @@
             ]);
         }
 
-        try {
-            await page.waitForSelector("#newText", { timeout: 0 });
-            console.log(`Succeed to sign in.`);
-        } catch (err) {
-            console.log(`Failed to sign in: ` + err);
-            axios.post(barkURL + `[Textnow] Failed to sign in!?isArchive=1`);
-            process.exit(1);
-        }
+        /*         try {
+                    await page.waitForSelector("#newText", { timeout: 0 });
+                    console.log(`Succeed to sign in.`);
+                } catch (err) {
+                    console.log(`Failed to sign in: ` + err);
+                    axios.post(barkURL + `[Textnow] Failed to sign in!?isArchive=1`);
+                    process.exit(1);
+                } */
 
         try {
             fs.writeFileSync(
