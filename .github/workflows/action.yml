@@ -27,7 +27,6 @@ jobs:
         env:
           TEXTNOW_COOKIES: ${{secrets.TEXTNOW_COOKIES}} # 多账号cookies_str1|+|cookies_str2
           BARK_URL: ${{secrets.BARK_URL}}
-          CAPTCHA_TOKEN: ${{secrets.CAPTCHA_TOKEN}}
         run: |
           mkdir .cache
           if [ -e ~/cache.tgz ]; then tar -zxf ~/cache.tgz; fi  # 如果当前目录下有 cache.tgz 压缩文件，则进行解压
