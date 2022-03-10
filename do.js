@@ -12,7 +12,7 @@
 
   const barkURL = process.env.BARK_URL;
   const browser = await puppeteer.launch({
-    headless: true,
+    headless: false,
   });
   var recipient = "";
   var codeNum = "";
