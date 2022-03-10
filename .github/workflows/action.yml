@@ -30,5 +30,7 @@ jobs:
         run: |
           mkdir .cache
           if [ -e ~/cache.tgz ]; then tar -zxf ~/cache.tgz; fi  # 如果当前目录下有 cache.tgz 压缩文件，则进行解压
+          sudo apt-get update
+          sudo apt-get install xvfb
           node do.js
           tar -zcf ~/cache.tgz .cache # 把.cache 目录压缩成 cache.tgz 文件
