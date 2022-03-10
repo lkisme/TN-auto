@@ -6,6 +6,9 @@
   const path = require("path");
   const fs = require("fs");
   const axios = require('axios');
+  
+  const Xvfb = require('xvfb');
+  var xvfb = new Xvfb();
 
   const barkURL = process.env.BARK_URL;
   const browser = await puppeteer.launch({
@@ -40,6 +43,8 @@
   }
 
 
+  xvfb.startSync();
+  
   try {
 /*      const randomTime = Math.floor(Math.random() * (300000 - 60000 + 1) + 60000);
       console.log("randomTime= " + randomTime);
@@ -159,4 +164,4 @@
 })();
 
 
-
+xvfb.stopSync();
