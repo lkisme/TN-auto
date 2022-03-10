@@ -1,6 +1,6 @@
-  const Xvfb = require('xvfb');
-  var xvfb = new Xvfb();
- xvfb.startSync();
+const Xvfb = require('xvfb');
+var xvfb = new Xvfb();
+xvfb.startSync();
 
 (async () => {
   const puppeteer = require('puppeteer-extra');
@@ -165,6 +165,5 @@
   }
 
 })();
-
 
 xvfb.stopSync();
