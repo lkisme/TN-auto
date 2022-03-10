@@ -1,3 +1,7 @@
+  const Xvfb = require('xvfb');
+  var xvfb = new Xvfb();
+ xvfb.startSync();
+
 (async () => {
   const puppeteer = require('puppeteer-extra');
   const StealthPlugin = require('puppeteer-extra-plugin-stealth');
@@ -7,8 +11,7 @@
   const fs = require("fs");
   const axios = require('axios');
   
-  const Xvfb = require('xvfb');
-  var xvfb = new Xvfb();
+
 
   const barkURL = process.env.BARK_URL;
   const browser = await puppeteer.launch({
@@ -43,7 +46,7 @@
   }
 
 
-  xvfb.startSync();
+ 
   
   try {
 /*      const randomTime = Math.floor(Math.random() * (300000 - 60000 + 1) + 60000);
