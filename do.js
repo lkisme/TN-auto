@@ -53,13 +53,9 @@ xvfb.startSync();
       console.log("randomTime= " + randomTime);
       await page.waitForTimeout(randomTime);*/
     
-    //console.log("1");
     const page = await browser.newPage();
-    //console.log("2");
     const cookies_secret = eval(process.env.TEXTNOW_COOKIES);
-    //console.log("3");
     const md5 = crypto.createHash('md5').update('textnow').digest('hex');
-    //console.log("4");
     var cookies = "";
     
     // Importing cached cookies from file
@@ -117,13 +113,10 @@ xvfb.startSync();
     }
 
     try {
-      await page.waitForSelector('.newConversationTextField');
-      await page.type('.newConversationTextField', recipient);
-      //console.log("2 done...");
-      //await page.$eval('.newConversationTextField', (recip, _recipient) => recip.value = _recipient, recipient);
+      await page.waitForSelector('.recipients input');
+      await page.type('.recipients input', recipient);
       await page.waitForTimeout(1500);
       await page.keyboard.press("Enter");
-      //console.log("3 done...");
       await page.waitForTimeout(3000);
       console.log("Succeed to select conversation.");
     } catch (error) {
@@ -137,7 +130,6 @@ xvfb.startSync();
     try {
       await page.waitForSelector('#text-input');
       await page.type('#text-input', message);
-      //console.log("4 done...");
       await page.waitForTimeout(1500);
       try {
         //await page.click('#text-input'); //无头模式下，这种写法有时不灵?
