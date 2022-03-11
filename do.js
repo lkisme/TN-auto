@@ -20,9 +20,6 @@ xvfb.startSync();
   var recipient = "";
   var codeNum = "";
 
-  const randomTime = Math.floor(Math.random() * (300000 - 30000) + 30000);
-  console.log('Waiting for ' + randomTime / 1000 + ' seconds to start ...');
-  await page.waitForTimeout(randomTime);
   console.log("Start...");
 
   for (var i = 0; i < 4; i++) {
@@ -105,7 +102,6 @@ xvfb.startSync();
         document.getElementById("newText").click();
       });
 */
-      //console.log("1 done...");
     } catch (error) {
       console.log(`Failed to click selector "#newText"! ` + error);
       axios.post(barkURL + '[Textnow] Failed to click selector "#newText"!?isArchive=1');
