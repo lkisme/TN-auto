@@ -56,8 +56,8 @@ xvfb.startSync();
     const page = await browser.newPage();
     const cookies_secret = eval(process.env.TEXTNOW_COOKIES);
     const md5 = crypto.createHash('md5').update('textnow').digest('hex');
-    var cookies = cookies_secret;
-  /*  
+    var cookies = "";
+    
     // Importing cached cookies from file
     console.log("Importing cached cookies...");
     try {
@@ -71,7 +71,7 @@ xvfb.startSync();
       cookies = cookies_secret;
       axios.post(barkURL + '[Textnow] Failed to import cached cookies!?isArchive=1');
     }
-*/
+
     // Use cookies log into TextNow and get new cookies
     console.log("Logging in with existing cookies");
     await page.setCookie(...cookies);
