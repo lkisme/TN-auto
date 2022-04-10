@@ -27,23 +27,36 @@ xvfb.startSync();
     codeNum += a;
   }
   const message = "Code: " + codeNum;
+  //Build msg
+  let dynamicMessage = message;
+    try {
+      console.log('Trying to get dynamic message...');
+      const pageNew = await browser.newPage();
+      const response = await pageNew.goto('https://v1.jinrishici.com/all.txt');
+      dynamicMessage = await response.text();
+      console.log(`Got dynamic message: ${dynamicMessage}`);
+      await pageNew.close();
+    } catch (error) {
+      console.log(`Failed to get dynamicMessage: ${error}`);
+    }
   
   // Get recipient number
-  try {
-    console.log("Get recipient number...");
-    const page0 = await browser.newPage();
-    await page0.goto("https://yunduanxin.net/US-Phone-Number/", { waitUtil: "networkidle2" });
-    await page0.waitForSelector('div[class="number-boxes"] div:nth-child(1) .row .number-boxes-item-number')
-    recipient = await page0.$eval('div[class="number-boxes"] div:nth-child(1) .row .number-boxes-item-number', node => node.innerText)
-    if (!recipient.match(/\+1 \d{10}/)) {
-      axios.post(barkURL + '[Textnow] Failed to Get recipient number!?isArchive=1');
-    } else {
-      console.log("Succeed to Get recipient number.");
-    }
-  } catch (error) {
-    console.log("Failed to Get recipient number.");
-    axios.post(barkURL + '[Textnow] Failed to Get recipient number!?isArchive=1');
-  }
+  recipient= process.env.RECIPIENT;
+//   try {
+//     console.log("Get recipient number...");
+//     const page0 = await browser.newPage();
+//     await page0.goto("https://yunduanxin.net/US-Phone-Number/", { waitUtil: "networkidle2" });
+//     await page0.waitForSelector('div[class="number-boxes"] div:nth-child(1) .row .number-boxes-item-number')
+//     recipient = await page0.$eval('div[class="number-boxes"] div:nth-child(1) .row .number-boxes-item-number', node => node.innerText)
+//     if (!recipient.match(/\+1 \d{10}/)) {
+//       axios.post(barkURL + '[Textnow] Failed to Get recipient number!?isArchive=1');
+//     } else {
+//       console.log("Succeed to Get recipient number.");
+//     }
+//   } catch (error) {
+//     console.log("Failed to Get recipient number.");
+//     axios.post(barkURL + '[Textnow] Failed to Get recipient number!?isArchive=1');
+//   }
 
 
  
@@ -129,7 +142,7 @@ xvfb.startSync();
     console.log("Sending message...");
     try {
       await page.waitForSelector('#text-input');
-      await page.type('#text-input', message);
+      await page.type('#text-input', dynamicMessage);
       await page.waitForTimeout(1500);
       try {
         //await page.click('#text-input'); //无头模式下，这种写法有时不灵?
