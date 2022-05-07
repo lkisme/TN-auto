@@ -141,6 +141,7 @@ xvfb.startSync();
     // Send a message to the current recipient
     console.log("Sending message...");
     try {
+      await page.waitForTimeout(3000);
       await page.waitForSelector('#text-input');
       await page.type('#text-input', dynamicMessage);
       await page.waitForTimeout(1500);
