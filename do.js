@@ -78,7 +78,7 @@ xvfb.startSync();
     await page.goto("https://www.textnow.com/messaging", { waitUntil: "networkidle2" });
 
     try {
-      await page.waitForSelector("#newText");
+      await page.waitForSelector("#newText",{ timeout: 6000 });
       console.log(`Succeed to sign in.`);
     } catch (err) {
       console.log(`Failed to sign in: ` + err);
@@ -100,7 +100,7 @@ xvfb.startSync();
     // Select a conversation using recipient info
     console.log("Selecting conversation...");
     try {
-      await page.waitForSelector('#newText');
+      await page.waitForSelector('#newText',{ timeout: 6000 });
       //await page.click('#newText'); //无头模式下，这种写法有时不灵?
       await page.evaluate(() => {
         document.getElementById("newText").click();
@@ -128,7 +128,7 @@ xvfb.startSync();
     // Send a message to the current recipient
     console.log("Sending message...");
     try {
-      await page.waitForSelector('#text-input');
+      await page.waitForSelector('#text-input',{ timeout: 6000 });
       await page.type('#text-input', message);
       await page.waitForTimeout(1500);
       try {
