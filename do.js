@@ -91,7 +91,7 @@ xvfb.startSync();
     await page.goto("https://www.textnow.com/messaging", { waitUntil: "networkidle2" });
 
     try {
-      await page.waitForSelector("#newText",{ timeout: 6000 });
+      await page.waitForSelector("#newText");
       console.log(`Succeed to sign in.`);
     } catch (err) {
       console.log(`Failed to sign in: ` + err);
